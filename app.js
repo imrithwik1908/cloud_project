@@ -1,32 +1,88 @@
-/**
-* Copyright 2019 IBM
-*
-*   Licensed under the Apache License, Version 2.0 (the "License");
-*   you may not use this file except in compliance with the License.
-*   You may obtain a copy of the License at
-*
-*     http://www.apache.org/licenses/LICENSE-2.0
-*
-*   Unless required by applicable law or agreed to in writing, software
-*   distributed under the License is distributed on an "AS IS" BASIS,
-*   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-*   See the License for the specific language governing permissions and
-*   limitations under the License.
-**/
+// server.js
+const express = require('express');
+const mongoose = require('mongoose');
+const dotenv = require('dotenv');
+const session = require('express-session');
+const passport = require('passport');
+const path = require('path');
 
-var express = require('express');
-const message = require('./utils');
-var PORT;
-if (process.env.PORT) {
-  PORT = process.env.PORT;
-} else {
-  PORT = 80;
-}
 
-var app = express();
-app.get('/', function (req, res) {
-  res.send(message.getWelcomeMessage());
+// Load environment variables
+dotenv.config(); 
+
+// Import routes
+const professorRoutes = require('./routes/professorRoutes');
+const studentRoutes = require('./routes/studentRoutes');
+const courseRoutes = require('./routes/courseRoutes');
+const Student = require('./models/Student');
+
+// Initialize Express app
+const app = express();
+
+// Middleware
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(express.static(path.join(__dirname, 'public')));
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
+
+// Set up session
+app.use(session({
+    secret: 'your_secret_key',
+    resave: false,
+    saveUninitialized: false,
+}));
+
+// Initialize Passport
+app.use(passport.initialize());
+app.use(passport.session());
+
+// Load Passport config
+require('./config/passport');
+
+mongoose.connect(process.env.MONGODB_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
+.then(() => console.log('Connected to MongoDB'))
+.catch((error) => console.error('Failed to connect to MongoDB:', error));
+
+app.get('/auth/google', passport.authenticate('google', {
+  scope: ['profile', 'email'] 
+}));
+
+app.get('/google/callback', passport.authenticate('google', { failureRedirect: '/' }),
+  (req, res) => {
+      // Redirect based on user role after successful login
+      if (req.user instanceof Student) {
+          res.redirect('/student/home');  
+      } else {
+          res.redirect('/professor/home');
+      }   
+  }
+);
+
+app.use('/professor', professorRoutes);   
+app.use('/student', studentRoutes);
+// app.use('/course', courseRoutes);
+
+app.get('/', (req, res) => {
+    res.render('index');
 });
 
-app.listen(PORT);
-console.log(message.getPortMessage() + PORT);
+app.get('/logout', (req, res) => {
+    req.logout((err) => {
+        if (err) {
+            console.error('Error during logout:', err);
+            return res.status(500).send('Error logging out');
+        }
+        res.redirect('/');
+    });
+});
+
+
+// Start server
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Server is running on PORT: ${PORT}`);
+});

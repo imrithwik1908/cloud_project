@@ -12,5 +12,5 @@ const getPortMessage = () => {
     return portMessage;
 };
 
-exports.getWelcomeMessage = getWelcomeMessage;
+exports.getWelcomeMessage = getWelcomeMessage; 
 exports.getPortMessage = getPortMessage;

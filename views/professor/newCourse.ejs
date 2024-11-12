@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Course</title>
+    <link rel="stylesheet" href="/prof.css">
+</head>
+<body>
+    <header>
+        <h1>Add a New Course</h1>
+        <nav>
+            <a href="/professor/courses">Back to Courses</a>
+        </nav>
+    </header>
+    <main>
+        <form action="/professor/courses/new" method="POST">
+            <label for="name">Course Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="courseCode">Course Code:</label>
+            <input type="text" id="courseCode" name="courseCode" required>
+
+            <label for="description">Description:</label>
+            <textarea id="description" name="description" required></textarea>
+
+            <label for="credits">Credits:</label>
+            <input type="number" id="credits" name="credits" required min="1">
+
+            <button type="submit">Create Course</button>
+        </form>
+    </main>
+</body>
+</html>

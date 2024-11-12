@@ -25,16 +25,24 @@
     "start-server": "node --max-http-header-size=65535 app.js testApp",
     "stop-server": "killall -SIGINT testApp",
     "test-unit": "jest ./test/unit.test.js",
-    "test-fvt": "jest ./test/fvt.test.js"
+    "test-fvt": "jest ./test/fvt.test.js",
+    "start": "nodemon app.js"
   },
   "dependencies": {
-    "express": "^4.21.0",
-    "nconf": "*"
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
+    "express": "^4.21.1",
+    "express-sesssion": "^1.15.5",
+    "mongoose": "^8.8.0",
+    "nconf": "*",
+    "passport": "^0.7.0",
+    "passport-google-oauth20": "^2.0.0"
   },
   "devDependencies": {
+    "axios": "^1.7.7",
     "jest": "^29.7.0",
     "jest-junit": "^16.0.0",
-    "axios": "^1.7.7"
+    "nodemon": "^3.1.7"
   },
   "overrides": {
     "cookie": "0.7.2"

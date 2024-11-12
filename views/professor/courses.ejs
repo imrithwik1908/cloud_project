@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Courses</title>
+    <link rel="stylesheet" href="/prof.css">
+</head>
+<body>
+    <header>
+        <h1>Your Courses</h1>
+        <nav>
+            <a href="/professor/home">Dashboard</a>
+            <a href="/logout">Logout</a>
+        </nav>
+    </header>
+    <main>
+        <ul class="course-list">
+            <% courses.forEach(course => { %>
+                <li>
+                    <h3><%= course.name %></h3>
+                    <p><%= course.description %></p>
+                    <p><strong>Credits:</strong> <%= course.credits %></p>
+                    <div class="actions">
+                        <a href="/professor/courses/<%= course._id %>/edit" class="button">Edit Course</a>
+                        <a href="/professor/courses/<%= course._id %>/students" class="button">View Enrolled Students</a>
+                    </div>
+                </li>
+            <% }) %>
+        </ul>
+        <a class="button" href="/professor/courses/new">+ Add New Course</a>
+    </main>
+</body>
+</html>

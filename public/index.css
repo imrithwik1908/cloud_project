@@ -1,0 +1,189 @@
+:root {
+    --color-primary: #005A8B; /* Deep Blue */
+    --color-secondary: #003366; /* Dark Blue */
+    --color-tertiary: #F5E0C3; /* Light Cream */
+    --color-light: #FFFFFF; /* White */
+    --color-background: #F0F4F8; /* Light Grayish Background */
+  }
+  
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    border: 0;
+    text-decoration: none;
+    list-style: none;
+  }
+  
+  .container {
+    width: 86%;
+    margin: 0 auto;
+  }
+  
+  a {
+    color: var(--color-light);
+    font-size: 1rem;
+    font-weight: bold;
+  }
+  
+  body {
+    font-family: 'Arial', sans-serif;
+    background: url('https://www.w3schools.com/w3images/education.jpg') no-repeat center center/cover; /* College-Related Background */
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    color: var(--color-light);
+  }
+  
+  nav {
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background for navbar */
+  }
+  
+  nav .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 0;
+  }
+  
+  nav .container img {
+    width: 4rem;
+  }
+  
+  nav .container input,
+  nav .container #toggleNav {
+    display: none;
+  }
+  
+  nav .container ul {
+    display: flex;
+    gap: 3rem;
+  }
+  
+  nav a {
+    color: var(--color-light);
+    font-size: 1rem;
+    transition: color 300ms ease;
+  }
+  
+  nav a:hover {
+    color: var(--color-tertiary);
+  }
+  
+  nav .container ul li a.active {
+    font-weight: bold;
+  }
+  
+  section {
+    display: grid;
+    place-items: center;
+    width: 100vw;
+    height: 100%;
+    text-align: center;
+    color: var(--color-light);
+    padding-top: 5rem;
+  }
+  
+  section .container h1 {
+    font-size: 6rem;
+    color: var(--color-primary);
+    margin-bottom: 0.5rem;
+  }
+  
+  section .container h3 {
+    font-size: 2rem;
+    color: var(--color-secondary);
+    margin-bottom: 2rem;
+  }
+  
+  section .container input[type="search"] {
+    background: transparent;
+    border: 1px solid var(--color-light);
+    border-radius: 2rem;
+    padding: 0.7rem 1.5rem;
+    color: var(--color-light);
+    margin-bottom: 2rem;
+  }
+  
+  section .container input[type="search"]::placeholder {
+    color: var(--color-light);
+  }
+  
+  section .container p {
+    color: var(--color-light);
+    max-width: 40rem;
+    margin: 0 auto;
+    margin-bottom: 3rem;
+    font-size: 1rem;
+  }
+  
+  section .container a {
+    background: linear-gradient(to right, var(--color-secondary), var(--color-primary));
+    padding: 0.8rem 3rem;
+    margin: 0.4rem;
+    border-radius: 2rem;
+    color: var(--color-light);
+    font-weight: bold;
+    transition: background 300ms ease;
+  }
+  
+  section .container a:hover {
+    background: linear-gradient(to left, var(--color-secondary), var(--color-primary));
+  }
+  
+  /* Responsive Styles */
+  @media screen and (max-width: 700px) {
+    nav .container {
+      width: 100%;
+      padding: 1rem 0;
+      background: var(--color-secondary);
+    }
+  
+    nav img {
+      margin-left: 1rem;
+    }
+  
+    nav .container #showNav:checked ~ ul {
+      display: block;
+    }
+  
+    nav .container #toggleNav {
+      display: inline-block;
+      color: var(--color-light);
+      font-size: 2rem;
+      margin-right: 1rem;
+      cursor: pointer;
+    }
+  
+    nav .container ul {
+      display: none;
+      position: absolute;
+      top: 100%;
+      width: 100%;
+    }
+  
+    nav .container li {
+      text-align: center;
+      background: var(--color-primary);
+      padding: 1.5rem 0;
+      cursor: pointer;
+    }
+  
+    section .container h1 {
+      font-size: 3rem;
+    }
+  
+    section .container h3 {
+      font-size: 1.5rem;
+    }
+  
+    section .container a {
+      padding: 1rem 2rem;
+    }
+  }
+  

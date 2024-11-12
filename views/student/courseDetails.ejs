@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Details</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1><%= course.name %></h1>
+        <p><strong>Professor:</strong> <%= course.professor.name %> (<%= course.professor.department %>)</p>
+        <p><strong>Description:</strong> <%= course.description %></p>
+        <p><strong>Credits:</strong> <%= course.credits %></p>
+        
+        <form action="/student/catalog/<%= course._id %>/add" method="POST">
+            <button type="submit">Add to Cart</button>
+        </form>
+    </div>
+</body>
+</html>

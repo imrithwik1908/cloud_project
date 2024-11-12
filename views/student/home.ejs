@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Welcome, <%= user.name %>!</h1>
+            <nav>
+                <ul>
+                    <li><a href="/student/cart">View Cart</a></li>
+                    <li><a href="/logout">Logout</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Enrolled Courses Section -->
+        <section class="enrolled-courses">
+            <h2>Your Enrolled Courses</h2>
+            <div class="course-grid">
+                <% enrolledCourses.forEach(course => { %>
+                    <div class="course-card enrolled">
+                        <h3><%= course.name %></h3>
+                        <p><%= course.description %></p>
+                        <span>Credits: <%= course.credits %></span>
+                    </div>
+                <% }) %>
+            </div>
+        </section>
+
+        <!-- Available Courses Section -->
+        <section class="catalog">
+            <h2>Course Catalog</h2>
+            <div class="course-grid">
+                <% availableCourses.forEach(course => { %>
+                    <div class="course-card">
+                        <h3><%= course.name %></h3>
+                        <p><%= course.description %></p>
+                        <form action="/student/catalog/<%= course._id %>/add" method="POST">
+                            <button type="submit" class="add-to-cart">Add to Cart</button>
+                        </form>
+                        <a href="/student/catalog/<%= course._id %>">View Details</a>
+                    </div>
+                <% }) %>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
