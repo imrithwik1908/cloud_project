@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 
-import avatarAnisha from '../assets/images/avatar-anisha.png';
+
+import githubLogo from '../assets/images/githubLogo.png';
 import avatarAli from '../assets/images/avatar-ali.png';
 import avatarRichard from '../assets/images/avatar-richard.png';
 
@@ -14,48 +15,59 @@ const Testimonial = () => {
           Our team
         </h2>
         {/* Testimonials Container */}
-        <div className='flex flex-col mt-24 md:flex-row md:space-x-6'>
+        
+        <div className='flex flex-col mt-24 md:flex-row md:space-x-4'>
           {/* Testimonial 1 */}
+          
           <div className='flex flex-col items-center p-6 space-y-6 rounded-lg bg-veryLightGray md:w-1/3'>
-            <img src={avatarAnisha} className='w-16 -mt-14' alt='' />
-            <h5 className='text-lg font-bold'>Anisha Li</h5>
-            <p className='text-sm text-darkGrayishBlue'>
-              “Manage has supercharged our team's workflow. The ability to
-              maintain visibility on larger milestones at all times keeps
-              everyone motivated.”
+          <Link to="https://github.com/chaytalij">
+          
+          <img src={githubLogo} className='w-16 -mt-14 rounded-3xl' alt='' />
+          </Link>
+            <h5 className='text-lg font-bold'>Chaytali Jawalekar</h5>
+            <p className='text-sm font-bold'>
+             21BCS026
             </p>
           </div>
 
           {/* Testimonial 2 */}
+          
           <div className='hidden flex-col items-center p-6 space-y-6 rounded-lg bg-veryLightGray md:flex md:w-1/3'>
-            <img src={avatarAli} className='w-16 -mt-14' alt='' />
-            <h5 className='text-lg font-bold'>Ali Bravo</h5>
-            <p className='text-sm text-darkGrayishBlue'>
-              “We have been able to cancel so many other subscriptions since
-              using Manage. There is no more cross-channel confusion and
-              everyone is much more focused.”
+          <Link to="https://github.com/adij003">
+          
+          <img src={githubLogo} className='w-16 -mt-14 rounded-3xl' alt='' />
+          </Link>
+
+            <h5 className='text-lg font-bold'>Adi Jain</h5>
+            <p className='text-sm font-bold'>
+             21BCS003
             </p>
           </div>
 
           {/* Testimonial 3 */}
           <div className='hidden flex-col items-center p-6 space-y-6 rounded-lg bg-veryLightGray md:flex md:w-1/3'>
-            <img src={avatarRichard} className='w-16 -mt-14' alt='' />
-            <h5 className='text-lg font-bold'>Richard Watts</h5>
-            <p className='text-sm text-darkGrayishBlue'>
-              “Manage has supercharged our team's workflow. The ability to
-              maintain visibility on larger milestones at all times keeps
-              everyone motivated.”
+          <Link to="https://github.com/imrithwik1908">
+          
+          <img src={githubLogo} className='w-16 -mt-14 rounded-3xl' alt='' />
+          </Link>
+
+            <h5 className='text-lg font-bold'>C. Sai Rithwik Reddy</h5>
+            <p className='text-sm font-bold'>
+             21BCS028
             </p>
           </div>
           <div className='hidden flex-col items-center p-6 space-y-6 rounded-lg bg-veryLightGray md:flex md:w-1/3'>
-            <img src={avatarRichard} className='w-16 -mt-14' alt='' />
-            <h5 className='text-lg font-bold'>Richard Watts</h5>
-            <p className='text-sm text-darkGrayishBlue'>
-              “Manage has supercharged our team's workflow. The ability to
-              maintain visibility on larger milestones at all times keeps
-              everyone motivated.”
+          <Link to="https://github.com/adij003">
+          
+          <img src={githubLogo} className='w-16 -mt-14 rounded-3xl' alt='' />
+          </Link>
+
+            <h5 className='text-lg font-bold'>Ashish Jadhawar</h5>
+            <p className='text-sm font-bold'>
+             21BCS015
             </p>
           </div>
+        
         </div>
         {/* Button */}
         <div className='my-16'>

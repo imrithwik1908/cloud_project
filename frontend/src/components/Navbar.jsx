@@ -23,7 +23,7 @@ const Navbar = () => {
           to="/home" className="hover:text-darkGrayishBlue">
             Course selection
           </Link>
-          <Link to="#" className="hover:text-darkGrayishBlue ">
+          <Link to="/aboutUs" className="hover:text-darkGrayishBlue ">
             About Us
           </Link>
           <Link to="https://www.iiitdwd.ac.in/careers/" className="hover:text-darkGrayishBlue">
