@@ -11,10 +11,10 @@ function LoginPage() {
     <div className='mx-2'>
       <Navbar/>
       <Hero/>
-      <Features/>      
+      {/* <Features/>       */}
       <Testimonial />
-      <CallToAction />
-      <Footer />       
+      {/* <CallToAction /> */}
+      {/* <Footer />        */}
     </div>
     
   )
