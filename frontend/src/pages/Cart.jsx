@@ -1,8 +1,14 @@
 import React from 'react'
+import StudentNav from '../components/StudentNav'
 
 function Cart() {
   return (
-    <div>Cart</div>
+    <div>
+        <StudentNav/>
+        <div>
+            Cart is here
+        </div>
+    </div>
   )
 }
 
