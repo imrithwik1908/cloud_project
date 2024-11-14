@@ -1,17 +1,20 @@
 import React, { useState } from 'react';
 import { FaPlusCircle } from "react-icons/fa"; // New icon
 
+
 function StudentCourseCard({ courseName, courseCode, credits, professorName, onAddCourse }) {
   const [showModal, setShowModal] = useState(false);
 
   const handleAddClick = () => {
-    setShowModal(true);
+    
+    onAddCourse({ courseName, courseCode, credits, professor: professorName });
+    
+
   };
 
-  const confirmAddCourse = () => {
-    onAddCourse({ courseName, courseCode, credits, professor: professorName });
-    setShowModal(false); // Close modal after confirmation
-  };
+  
+
+
 
   return (
     <div className="max-w-sm w-full rounded-lg shadow-lg bg-gray-100 p-6 m-4 h-60 hover:shadow-2xl transform hover:scale-103 transition duration-100 ease-in-out relative">
@@ -39,19 +42,9 @@ function StudentCourseCard({ courseName, courseCode, credits, professorName, onA
         </div>
       </div>
 
-      {/* Confirmation Modal */}
-      {showModal && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-          <div className="bg-white p-6 rounded-lg shadow-lg max-w-sm w-full">
-            <h3 className="text-lg font-semibold mb-2">Confirm Add Course</h3>
-            <p>Are you sure you want to add <strong>{courseName}</strong>?</p>
-            <div className="flex justify-end mt-4">
-              <button onClick={() => setShowModal(false)} className="px-4 py-2 bg-gray-200 rounded mr-2">Cancel</button>
-              <button onClick={confirmAddCourse} className="px-4 py-2 bg-blue-500 text-white rounded">OK</button>
-            </div>
-          </div>
-        </div>
-      )}
+    
+
+    
     </div>
   );
 }
