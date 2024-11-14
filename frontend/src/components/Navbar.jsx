@@ -20,7 +20,7 @@ const Navbar = () => {
           
           <Link
           // add link to login
-          to="#" className="hover:text-darkGrayishBlue">
+          to="/home" className="hover:text-darkGrayishBlue">
             Course selection
           </Link>
           <Link to="#" className="hover:text-darkGrayishBlue ">
@@ -31,10 +31,10 @@ const Navbar = () => {
           </Link>
         </div>
         {/* Button */}
-        <Link to="#"
-      className="flex hover:bg-blue-800 p-3 rounded-md"
+        <Link to="/home"
+      className="flex hover:bg-blue-800 p-3 rounded-md hover:text-white"
         >
-          <button className="btn btn-blue" >Login</button>
+          <button className="btn btn-blue " >Login</button>
           <img className="w-6 ml-2" src={loginLogo} alt="" />
         </Link>
         

@@ -1,8 +1,10 @@
 import React from 'react'
-
+import NewNav from '../components/NewNav'
 function Home() {
   return (
-    <div>Home</div>
+    <div>
+      <NewNav/>
+    </div>
   )
 }
 
