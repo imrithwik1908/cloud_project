@@ -20,7 +20,7 @@ const StudentNav = () => {
           <Link
           // add link to login
           to="/student-home" className="hover:text-darkGrayishBlue items-center flex">
-            Home
+            View all courses
           </Link>
               </div>
         </div>
