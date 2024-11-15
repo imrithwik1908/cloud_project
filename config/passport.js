@@ -2,10 +2,10 @@ const passport = require('passport');
 const Student = require('../models/Student');
 const Professor = require('../models/Professor');
 const GoogleStrategy = require( 'passport-google-oauth20' ).Strategy;
-const dotenv = require('dotenv');
+const dotenv = require('dotenv');  
 
 // Determine branch based on branch code
-
+ 
 dotenv.config()
 
 passport.use(new GoogleStrategy({
