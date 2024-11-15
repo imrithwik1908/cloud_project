@@ -25,6 +25,6 @@ router.get('/enrolled', ensureStudent, studentController.viewEnrolledCourses);
 router.get('/home', ensureStudent, studentController.getStudentDashboard);
 
 
-
+ 
 module.exports = router
 
