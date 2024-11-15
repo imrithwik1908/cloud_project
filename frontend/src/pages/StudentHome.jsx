@@ -3,6 +3,8 @@ import { IoIosAddCircleOutline } from "react-icons/io";
 import StudentCourseCard from '../components/StudentCourseCard';
 import StudentEnrolledCard from '../components/StudentEnrolledCard';
 import StudentNav from '../components/StudentNav';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function StudentHome() {
   const [enrolledCourses, setEnrolledCourses] = useState([
@@ -37,10 +39,10 @@ function StudentHome() {
 
   // Function to handle adding a course
   const handleAddCourse = (course) => {
-    // Add course to enrolledCourses
-    setEnrolledCourses((prevCourses) => [...prevCourses, course]);
-    
     // Remove course from moreCourses
+    toast.success("Course added to cart")
+
+    console.log('add course to cart')
     setMoreCourses((prevCourses) =>
       prevCourses.filter((c) => c.courseCode !== course.courseCode)
     );
@@ -86,6 +88,7 @@ function StudentHome() {
           ))}
         </div>
       </div>
+      <ToastContainer/>
     </div>
   );
 }

@@ -20,7 +20,7 @@ const StudentNav = () => {
           <Link
           // add link to login
           to="/student-home" className="hover:text-darkGrayishBlue items-center flex">
-            Home
+            View all courses
           </Link>
               </div>
         </div>
@@ -34,6 +34,14 @@ const StudentNav = () => {
          </div>
         </div>
         {/* Button */}
+        <div className="flex">
+
+        <Link to="/checkout"
+      className="flex hover:bg-gray-100 p-3 rounded-md hover:text-black"
+        >
+          <button className="btn btn-blue " >View Cart</button>
+          
+        </Link>
         <Link to="/student-profile"
       className="flex hover:bg-gray-100 p-3 rounded-md hover:text-black"
         >
@@ -41,6 +49,8 @@ const StudentNav = () => {
           <img className="w-6 ml-2" src={loginLogo} alt="" />
         </Link>
         
+        </div>
+       
         
 
         {/* Hamburger Icon */}
