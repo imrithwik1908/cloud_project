@@ -8,16 +8,18 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
+    <header>
+        <h1>Welcome, <%= user.name %>!</h1>
+        <nav>
+            <ul>
+                <li><a href="/student/cart">View Cart</a></li>
+                <li><a href="/logout">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    
     <div class="container">
-        <header>
-            <h1>Welcome, <%= user.name %>!</h1>
-            <nav>
-                <ul>
-                    <li><a href="/student/cart">View Cart</a></li>
-                    <li><a href="/logout">Logout</a></li>
-                </ul>
-            </nav>
-        </header>
+        
 
         <!-- Enrolled Courses Section -->
         <section class="enrolled-courses">
@@ -50,32 +52,5 @@
             </div>
         </section>
     </div>
-
-    <script>
-        // Using AJAX to add courses to the cart
-        $(document).ready(function () {
-            $('.add-to-cart-form').on('submit', function (e) {
-                e.preventDefault(); // Prevent default form submission
-                const form = $(this);
-                const courseId = form.attr('action').split('/').pop(); // Get courseId from the action URL
-
-                $.ajax({
-                    type: 'POST',
-                    url: form.attr('action'),
-                    data: { courseId: courseId },
-                    success: function (response) {
-                        if (response.success) {
-                            alert(response.message); // Display success message
-                        } else {
-                            alert('Failed to add to cart');
-                        }
-                    },
-                    error: function () {
-                        alert('Error adding course to cart');
-                    }
-                });
-            });
-        });
-    </script>
 </body>
 </html>

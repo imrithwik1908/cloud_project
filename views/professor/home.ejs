@@ -7,30 +7,43 @@
     <link rel="stylesheet" href="/prof.css">
 </head>
 <body>
-    <header>
-        <h1>Welcome, <%= professor.name %>!</h1>
-        <p>Department: <%= professor.department %></p>
-        <nav>
-            <a href="/professor/courses">Manage Courses</a>
-            <a href="/logout">Logout</a>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="header-content">
+            <h1>Welcome, <%= professor.name %>!</h1>
+            <p>Department: <%= professor.department %></p>
+        </div>
+        <nav class="nav-bar">
+            <a href="/professor/courses" class="nav-link">Manage Courses</a>
+            <a href="/logout" class="nav-link">Logout</a>
         </nav>
     </header>
+
+    <!-- Main Content -->
     <main>
+        <!-- Courses Section -->
         <section class="courses-section">
             <h2>Your Courses</h2>
             <% if (professor.coursesTaught.length > 0) { %>
                 <ul class="course-list">
                     <% professor.coursesTaught.forEach(course => { %>
-                        <li><%= course.name %></li>
+                        <li class="course-item"><%= course.name %></li>
                     <% }) %>
                 </ul>
             <% } else { %>
-                <p>No courses added yet.</p>
+                <p class="no-courses">No courses added yet.</p>
             <% } %>
         </section>
+
+        <!-- Add Course Section -->
         <section class="add-course-section">
-            <a class="button" href="/professor/courses/new">+ Add New Course</a>
+            <a class="button add-course-button" href="/professor/courses/new">+ Add New Course</a>
         </section>
     </main>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <p>&copy; 2024 Professor Dashboard. All Rights Reserved.</p>
+    </footer>
 </body>
 </html>

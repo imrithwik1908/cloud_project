@@ -5,10 +5,110 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add New Course</title>
     <link rel="stylesheet" href="/prof.css">
+    <style>
+        /* Body & Font */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f6f9;
+            color: #333;
+            margin: 0;
+            padding-top: 70px; /* Adjust for fixed header */
+        }
+
+        /* Header */
+        header {
+            background-color: #2d3e50;
+            color: #fff;
+            padding: 20px;
+            width: 100%;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+
+        header h1 {
+            font-size: 1.8rem;
+            margin: 0;
+        }
+
+        header nav a {
+            color: #0091d5;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        header nav a:hover {
+            background-color: #005792;
+            color: white;
+        }
+
+        /* Form Styles */
+        main {
+            width: 100%;
+            max-width: 600px;
+            padding: 20px;
+            box-sizing: border-box;
+            margin-top: 80px; /* Ensure the form is below the fixed header */
+        }
+
+        form {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        form label {
+            font-size: 1.1rem;
+            color: #333;
+            margin-bottom: 8px;
+            display: block;
+            font-weight: bold;
+        }
+
+        form input, form textarea {
+            width: 100%;
+            padding: 10px;
+            font-size: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            transition: border-color 0.3s;
+        }
+
+        form input:focus, form textarea:focus {
+            border-color: #007bff;
+            outline: none;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+        }
+
+        form button {
+            width: 100%;
+            background-color: #007bff;
+            color: white;
+            font-size: 1.1rem;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-weight: bold;
+        }
+
+        form button:hover {
+            background-color: #005792;
+        }
+    </style>
 </head>
 <body>
     <header>
-        <h1>Add a New Course</h1>
+        <h1>Add New Course</h1>
         <nav>
             <a href="/professor/courses">Back to Courses</a>
         </nav>
@@ -22,7 +122,7 @@
             <input type="text" id="courseCode" name="courseCode" required>
 
             <label for="description">Description:</label>
-            <textarea id="description" name="description" required></textarea>
+            <textarea id="description" name="description" required rows="4"></textarea>
 
             <label for="credits">Credits:</label>
             <input type="number" id="credits" name="credits" required min="1">

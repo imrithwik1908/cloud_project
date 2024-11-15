@@ -7,23 +7,42 @@
     <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-    <div class="container">
+    <header>
         <h1>Your Cart</h1>
-        <% if (cart.length > 0) { %>
+        <nav>
             <ul>
-                <% cart.forEach(course => { %>
-                    <li>
-                        <h2><%= course.name %></h2>
-                        <p><%= course.description %></p>
-                        <p><strong>Credits:</strong> <%= course.credits %></p>
-                    </li>
-                <% }) %>
+                
+                <li><a href="/student/home">Back to course selection</a></li>
             </ul>
-            <form action="/student/enroll" method="POST">
-                <button type="submit">Enroll in Selected Courses</button>
-            </form>
+        </nav>
+    </header>
+
+    <div class="container">
+        
+
+        <!-- Cart Content -->
+        <% if (cart.length > 0) { %>
+            <section class="cart-items">
+                <h2 class="space-css">Items in Your Cart</h2>
+                <ul>
+                    <% cart.forEach(course => { %>
+                        <li class="course-card-cart">
+                            <h3><%= course.name %></h3>
+                            <p><%= course.description %></p>
+                            <p><strong>Credits:</strong> <%= course.credits %></p>
+                        </li>
+                    <% }) %>
+                </ul>
+
+                <form action="/student/enroll" method="POST">
+                    <button type="submit" class="go-to-cart">Enroll in Selected Courses</button>
+                </form>
+            </section>
         <% } else { %>
-            <p>Your cart is empty.</p>
+            <section class="empty-cart">
+                <p>Your cart is empty.</p>
+                <a href="/student/catalog" class="go-to-cart">Browse Courses</a>
+            </section>
         <% } %>
     </div>
 </body>

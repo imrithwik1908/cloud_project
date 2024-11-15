@@ -7,15 +7,31 @@
     <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-    <div class="container">
+    <header>
         <h1><%= course.name %></h1>
-        <p><strong>Professor:</strong> <%= course.professor.name %> (<%= course.professor.department %>)</p>
-        <p><strong>Description:</strong> <%= course.description %></p>
-        <p><strong>Credits:</strong> <%= course.credits %></p>
-        
-        <form action="/student/catalog/<%= course._id %>/add" method="POST">
-            <button type="submit">Add to Cart</button>
-        </form>
+        <nav>
+            <ul>
+                
+                <li><a href="/student/home">Back to course selection</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+       
+
+        <!-- Course Information -->
+        <section class="course-details">
+            <p><strong>Professor:</strong> <%= course.professor.name %> (<%= course.professor.department %>)</p>
+            <p><strong>Description:</strong> <%= course.description %></p>
+            <p><strong>Credits:</strong> <%= course.credits %></p>
+        </section>
+
+        <!-- Add to Cart Form -->
+        <section class="add-to-cart-section">
+            <form action="/student/catalog/<%= course._id %>/add" method="POST">
+                <button type="submit" class="add-to-cart">Add to Cart</button>
+            </form>
+        </section>
     </div>
 </body>
 </html>
