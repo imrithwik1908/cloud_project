@@ -52,5 +52,32 @@
             </div>
         </section>
     </div>
+
+    <script>
+        // Using AJAX to add courses to the cart
+        $(document).ready(function () {
+            $('.add-to-cart-form').on('submit', function (e) {
+                e.preventDefault(); // Prevent default form submission
+                const form = $(this);
+                const courseId = form.attr('action').split('/').pop(); // Get courseId from the action URL
+
+                $.ajax({
+                    type: 'POST',
+                    url: form.attr('action'),
+                    data: { courseId: courseId },
+                    success: function (response) {
+                        if (response.success) {
+                            alert(response.message); // Display success message
+                        } else {
+                            alert('Failed to add to cart');
+                        }
+                    },
+                    error: function () {
+                        alert('Error adding course to cart');
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
