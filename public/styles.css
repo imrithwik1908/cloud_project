@@ -150,6 +150,17 @@ nav a:hover {
     font-size: 0.95rem;
     transition: background-color 0.3s, transform 0.3s;
 }
+.add-to-cart {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    margin-top: 15px;
+    border-radius: 5px;
+    font-size: 0.95rem;
+    transition: background-color 0.3s, transform 0.3s;
+}
 
 .course-card .add-to-cart:hover {
     background-color: #218838;
