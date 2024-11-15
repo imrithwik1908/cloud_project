@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Profile</title>
+    <link rel="stylesheet" href="/prof.css">
+    <link rel="stylesheet" href="/styles-profile.css"> <!-- Profile-specific CSS -->
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="header-content">
+            <h1>Professor Profile: <%= professor.name %></h1>
+            <p class="department">Department: <%= professor.department %></p>
+        </div>
+        <nav class="nav-bar">
+            <a href="/professor/courses" class="nav-link">Manage Courses</a>
+            <a href="/professor/profile" class="nav-link">Profile</a>
+            <a href="/logout" class="nav-link logout-link">Logout</a>
+        </nav>
+    </header>
+
+    <!-- Profile Section -->
+    <main>
+        <section class="profile-section">
+            <h2>Your Details</h2>
+            <form action="/professor/profile" method="POST" class="profile-form">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" value="<%= professor.name %>" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" value="<%= professor.email %>" disabled>
+
+                <label for="phone">Phone:</label>
+                <input type="text" id="phone" name="phone" value="<%= professor.phone %>" required>
+
+                <label for="department">Department:</label>
+                <input type="text" id="department" name="department" value="<%= professor.department %>" required>
+
+                <button type="submit" class="btn primary-btn">Update Profile</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <p>&copy; 2024 Professor Dashboard. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

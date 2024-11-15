@@ -23,6 +23,39 @@ exports.viewCourseDetails = async (req, res) => {
     }
 }
 
+// View Student Profile
+exports.viewProfile = async (req, res) => {
+    try {
+        const student = await Student.findById(req.user._id);
+        res.render('student/profile', { student });
+    } catch (error) {
+        console.error('Error fetching student profile:', error);
+        res.status(500).send('Internal Server Error');
+    }
+};
+
+// Update Student Profile
+exports.updateProfile = async (req, res) => {
+    try {
+        const { name, email, semester } = req.body;
+        const student = await Student.findById(req.user._id);
+
+        // Update student's profile information
+        student.name = name || student.name;
+        student.email = email || student.email;
+        student.semester = semester || student.semester;
+
+        await student.save();
+        res.redirect('/student/profile');
+    } catch (error) {
+        console.error('Error updating student profile:', error);
+        res.status(500).send('Internal Server Error');
+    }
+};
+
+
+
+
 // Add course to cart
 // Add course to cart
 // Add course to cart
@@ -44,7 +77,7 @@ exports.addToCart = async (req, res) => {
         res.redirect('/student/cart');
     } catch (error) {
         console.error('Error adding course to cart:', error);
-        res.status(500).json({ success: false, message: 'Internal Server Error' });
+        res.status(500).json({ success: false, message: 'Internal Server Error' }); 
     }
 };
 

@@ -12,7 +12,7 @@
             background-color: #f4f6f9;
             color: #333;
             margin: 0;
-            padding-top: 70px; /* Adjust for fixed header */
+            padding-top: 70px;
         }
 
         /* Header */
@@ -59,11 +59,9 @@
 
         form {
             background-color: #fff;
-            padding: 20px; /* Reduced padding */
+            padding: 30px;
             border-radius: 8px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            max-width: 80%; /* Set form width to 80% */
-            margin: 0 auto; /* Center the form */
         }
 
         form label {
@@ -110,10 +108,14 @@
 </head>
 <body>
     <header>
-        <h1>Edit Course</h1>
-        <nav>
-            <a href="/professor/courses">Back to Courses</a>
-        </nav>
+        <div class="header-container">
+            <h1>Edit Course</h1> <!-- or Add New Course -->
+            <nav>
+                <a href="/professor/courses">Back to Courses</a>
+            </nav>
+        </div>
+    </header>
+
     </header>
     <main>
         <form action="/professor/courses/<%= course._id %>/edit" method="POST">

@@ -11,11 +11,13 @@
     <header class="header">
         <div class="header-content">
             <h1>Welcome, <%= professor.name %>!</h1>
-            <p>Department: <%= professor.department %></p>
+            <p class="department">Department: <%= professor.department %></p>
         </div>
         <nav class="nav-bar">
             <a href="/professor/courses" class="nav-link">Manage Courses</a>
-            <a href="/logout" class="nav-link">Logout</a>
+            <a href="/logout" class="nav-link logout-link">Logout</a>
+            <a href="/professor/profile" class="nav-link">Profile</a>
+
         </nav>
     </header>
 
@@ -25,13 +27,17 @@
         <section class="courses-section">
             <h2>Your Courses</h2>
             <% if (professor.coursesTaught.length > 0) { %>
-                <ul class="course-list">
+                <div class="course-grid">
                     <% professor.coursesTaught.forEach(course => { %>
-                        <li class="course-item"><%= course.name %></li>
+                        <div class="course-card">
+                            <h3><%= course.name %></h3>
+                            <p><%= course.description || "No description available." %></p>
+                            <p><strong>Credits:</strong> <%= course.credits %></p>
+                        </div>
                     <% }) %>
-                </ul>
+                </div>
             <% } else { %>
-                <p class="no-courses">No courses added yet.</p>
+                <p class="no-courses">You haven’t added any courses yet.</p>
             <% } %>
         </section>
 

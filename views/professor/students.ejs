@@ -5,18 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Enrolled Students</title>
     <link rel="stylesheet" href="/prof.css">
+    <link rel="stylesheet" href="/students.css"> <!-- Separate CSS file -->
 </head>
 <body>
     <header>
-        <h1>Students Enrolled in <%= course.name %></h1>
-        <nav>
-            <a href="/professor/courses">Back to Courses</a>
-        </nav>
+        <div class="header-container">
+            <h1>Students Enrolled in <%= course.name %></h1>
+            <nav>
+                <a href="/professor/courses">Back to Courses</a>
+            </nav>
+        </div>
     </header>
     <main>
         <ul class="student-list">
             <% students.forEach(student => { %>
-                <li>
+                <li class="student-item">
                     <p><strong>Name:</strong> <%= student.name %></p>
                     <p><strong>Email:</strong> <%= student.email %></p>
                 </li>

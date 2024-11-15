@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Profile</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/styles-profile.css"> <!-- Profile-specific CSS -->
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="header-container">
+            <h1></h1>
+            <nav>
+                <ul>
+                    <li><a href="/student/home" class="btn secondary-btn">Dashboard</a></li>
+                    <li><a href="/student/cart" class="btn secondary-btn">View Cart</a></li>
+                    <li><a href="/student/logout" class="btn secondary-btn">Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container profile-container">
+        <!-- Profile Information -->
+        <section class="profile-details">
+            <h2>Your Details</h2>
+            <form action="/student/profile" method="POST">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" value="<%= student.name %>" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" value="<%= student.email %>" disabled>
+
+                <label for="phone">Phone:</label>
+                <input type="text" id="phone" name="phone" value="<%= student.phone %>" required>
+
+                <label for="semester">Semester:</label>
+                <input type="number" id="semester" name="semester" value="<%= student.semester %>" disabled>
+
+                <label for="branch">Branch:</label>
+                <input type="text" id="branch" name="branch" value="<%= student.branch %>" disabled>
+
+                <button type="submit" class="btn primary-btn">Update Profile</button>
+            </form>
+        </section>
+    </div>
+
+    <!-- AJAX Script if needed -->
+    <script>
+        // You can include any AJAX logic here if needed, or form submission will work normally.
+    </script>
+</body>
+</html>

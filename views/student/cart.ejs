@@ -7,24 +7,21 @@
     <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-    <header>
+    <header class="cart-header">
         <h1>Your Cart</h1>
         <nav>
             <ul>
-                
-                <li><a href="/student/home">Back to course selection</a></li>
+                <li><a href="/student/home" class="back-to-home">Back to Course Selection</a></li>
             </ul>
         </nav>
     </header>
 
-    <div class="container">
-        
-
-        <!-- Cart Content -->
+    <div class="container cart-container">
         <% if (cart.length > 0) { %>
+            <!-- Cart Content -->
             <section class="cart-items">
-                <h2 class="space-css">Items in Your Cart</h2>
-                <ul>
+                <h2>Items in Your Cart</h2>
+                <ul class="cart-list">
                     <% cart.forEach(course => { %>
                         <li class="course-card-cart">
                             <h3><%= course.name %></h3>
@@ -33,15 +30,15 @@
                         </li>
                     <% }) %>
                 </ul>
-
-                <form action="/student/enroll" method="POST">
-                    <button type="submit" class="go-to-cart">Enroll in Selected Courses</button>
+                <form action="/student/enroll" method="POST" class="enroll-form">
+                    <button type="submit" class="primary-btn">Enroll in Selected Courses</button>
                 </form>
             </section>
         <% } else { %>
+            <!-- Empty Cart Message -->
             <section class="empty-cart">
                 <p>Your cart is empty.</p>
-                <a href="/student/catalog" class="go-to-cart">Browse Courses</a>
+                <a href="/student/catalog" class="primary-btn">Browse Courses</a>
             </section>
         <% } %>
     </div>

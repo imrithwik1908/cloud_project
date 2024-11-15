@@ -13,11 +13,19 @@ router.get('/catalog/:courseId', ensureStudent, studentController.viewCourseDeta
 // Add course to cart
 router.post('/catalog/:courseId/add', ensureStudent, studentController.addToCart);
 
-// View cart
+// View cart 
 router.get('/cart', ensureStudent, studentController.viewCart);
 
 // Enroll in courses
 router.post('/enroll', ensureStudent, studentController.enrollInCourses);
+
+// Add Profile Route
+router.get('/profile', ensureStudent, studentController.viewProfile);
+
+// Update Profile Route
+router.post('/profile', ensureStudent, studentController.updateProfile);
+
+
 
 // View enrolled courses
 router.get('/enrolled', ensureStudent, studentController.viewEnrolledCourses);
