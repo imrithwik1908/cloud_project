@@ -25,25 +25,29 @@ exports.viewCourseDetails = async (req, res) => {
 
 // Add course to cart
 // Add course to cart
+// Add course to cart
 exports.addToCart = async (req, res) => {
     try {
         const student = await Student.findById(req.user._id);
+        // Check if the course is not already enrolled or in the cart
         if (!student.enrolledCourses.includes(req.params.courseId) && !student.cart.includes(req.params.courseId)) {
             student.cart.push(req.params.courseId);
             await student.save();
         }
-        
+
         if (req.xhr) {
-            // Respond with JSON for AJAX requests
+            // If the request is an AJAX request, respond with JSON
             return res.json({ success: true, message: 'Added to cart successfully!' });
         }
 
+        // Redirect if not an AJAX request (fallback)
         res.redirect('/student/cart');
     } catch (error) {
         console.error('Error adding course to cart:', error);
         res.status(500).json({ success: false, message: 'Internal Server Error' });
     }
 };
+
 
 // Student Dashboard - combined view for courses and enrolled courses
 exports.getStudentDashboard = async (req, res) => {
