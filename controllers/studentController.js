@@ -4,7 +4,7 @@ const Student = require('../models/Student')
 // View Course Catalog
 exports.viewCatalog = async (req, res) => {
     try {
-        const courses = await Course.find()
+        const courses = await Course.find() 
         res.render('student/catalog', {courses})
     } catch (error) {
         console.error('Error fecthing the courses', error)
@@ -59,7 +59,7 @@ exports.getStudentDashboard = async (req, res) => {
         // Calculate total enrolled credits dynamically by summing the credits of enrolled courses
         const enrolledCredits = student.enrolledCourses.reduce((total, course) => total + course.credits, 0);
 
-        res.render('/student-home', {
+        res.render('student/home', {
             user: req.user,
             enrolledCourses: student.enrolledCourses,
             availableCourses: availableCourses, // Pass the filtered available courses

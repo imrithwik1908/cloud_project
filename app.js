@@ -58,7 +58,7 @@ app.get('/google/callback', passport.authenticate('google', { failureRedirect: '
           res.redirect('/student/home');  
       } else {
           res.redirect('/professor/home');
-      }   
+      }    
   }
 );
 
