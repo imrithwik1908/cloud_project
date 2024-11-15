@@ -132,4 +132,4 @@ exports.viewEnrolledCourses = async (req, res) => {
         console.error('Error fetching enrolled courses:', error);
         res.status(500).send('Internal Server Error');
     }
-} 
+}  
