@@ -59,7 +59,7 @@ exports.getStudentDashboard = async (req, res) => {
         // Calculate total enrolled credits dynamically by summing the credits of enrolled courses
         const enrolledCredits = student.enrolledCourses.reduce((total, course) => total + course.credits, 0);
 
-        res.render('/student-home', {
+        res.render('student/home', {
             user: req.user,
             enrolledCourses: student.enrolledCourses,
             availableCourses: availableCourses, // Pass the filtered available courses
