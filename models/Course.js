@@ -19,11 +19,14 @@ const courseSchema = new mongoose.Schema({
         ref: 'Professor',
         required: true,
     },
+    description: {    // Add description field here
+        type: String,
+        default: 'No description available', // Optional default value
+    },
     enrolledStudents: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Student'
     }]
 });
-
 
 module.exports = mongoose.model('Course', courseSchema);

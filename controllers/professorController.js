@@ -37,10 +37,11 @@ exports.createCourse = async (req, res) => {
         const course = new Course({
             name,
             courseCode,
-            description,
+            description,    // Store the description
             credits,
             professor: req.user._id
         });
+
         await course.save();
 
         const professor = await Professor.findById(req.user._id);
@@ -107,7 +108,7 @@ exports.updateCourse = async (req, res) => {
         }
 
         course.name = name;
-        course.description = description;
+        course.description = description;    // Update the description
         course.credits = credits;
         await course.save();
 
@@ -117,6 +118,7 @@ exports.updateCourse = async (req, res) => {
         res.status(500).send('Internal Server Error');
     }
 };
+ 
 
 exports.viewEnrolledStudents = async (req, res) => {
     try {

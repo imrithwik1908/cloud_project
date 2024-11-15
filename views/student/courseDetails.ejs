@@ -1,37 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Course Details</title>
-    <link rel="stylesheet" href="/styles.css">
-</head>
-<body>
-    <header>
-        <h1><%= course.name %></h1>
-        <nav>
-            <ul>
-                
-                <li><a href="/student/home">Back to course selection</a></li>
-            </ul>
-        </nav>
-    </header>
-    <div class="container">
-       
+<!-- No header -->
+<div class="container">
+    <!-- Course Information -->
+    <section class="course-card-enrolled">
+        <p><strong>Professor:</strong> <%= course.professor.name %> (<%= course.professor.department %>)</p>
+        <p><strong>Description:</strong> <%= course.description %></p>
+        <p><strong>Credits:</strong> <%= course.credits %></p>
+    </section>
 
-        <!-- Course Information -->
-        <section class="course-card-enrolled">
-            <p><strong>Professor:</strong> <%= course.professor.name %> (<%= course.professor.department %>)</p>
-            <p><strong>Description:</strong> <%= course.description %></p>
-            <p><strong>Credits:</strong> <%= course.credits %></p>
-        </section>
-
-        <!-- Add to Cart Form -->
-        <section class="add-to-cart-section">
-            <form action="/student/catalog/<%= course._id %>/add" method="POST">
-                <button type="submit" class="add-to-cart">Add to Cart</button>
-            </form>
-        </section>
-    </div>
-</body>
-</html>
+    <!-- Add to Cart Form -->
+    <section class="add-to-cart-section">
+        <form action="/student/catalog/<%= course._id %>/add" method="POST">
+            <button type="submit" class="add-to-cart">Add to Cart</button>
+        </form>
+    </section>
+</div>

@@ -15,13 +15,20 @@ exports.viewCatalog = async (req, res) => {
 // View course details
 exports.viewCourseDetails = async (req, res) => {
     try {
-        const course = await Course.findById(req.params.courseId).populate('professor', 'name department')
-        res.render('student/courseDetails', {course})
+        const course = await Course.findById(req.params.courseId).populate('professor', 'name department');
+        
+        if (req.xhr) {
+            return res.json(course);  // Send the course details as JSON if it's an AJAX request
+        }
+
+        // For regular requests, render the course details page
+        res.render('student/courseDetails', {course});
     } catch (error) {
-        console.error('Error fecthing the courses', error)
-        res.status(500).send('Internal Server Error!!')
+        console.error('Error fetching course details:', error);
+        res.status(500).send('Internal Server Error!!');
     }
-}
+};
+
 
 // View Student Profile
 exports.viewProfile = async (req, res) => {
