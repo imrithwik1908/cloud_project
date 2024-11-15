@@ -7,20 +7,36 @@
     <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-    <div class="container">
+    <header>
         <h1>Your Enrolled Courses</h1>
-        <% if (courses.length > 0) { %>
+        <nav>
             <ul>
-                <% courses.forEach(course => { %>
-                    <li>
-                        <h2><%= course.name %></h2>
-                        <p><%= course.description %></p>
-                        <p><strong>Credits:</strong> <%= course.credits %></p>
-                    </li>
-                <% }) %>
+                
+                <li><a href="/student/home">Back to course selection</a></li>
             </ul>
+        </nav>
+    </header>
+    
+    <div class="container">
+        
+
+        <!-- Enrolled Courses Content -->
+        <% if (courses.length > 0) { %>
+            <section class="enrolled-courses">
+                <ul>
+                    <% courses.forEach(course => { %>
+                        <li class="course-card-enrolled enrolled">
+                            <h3><%= course.name %></h3>
+                            <p><strong>Credits:</strong> <%= course.credits %></p>
+                        </li>
+                    <% }) %>
+                </ul>
+            </section>
         <% } else { %>
-            <p>You are not enrolled in any courses yet.</p>
+            <section class="empty-courses">
+                <p>You are not enrolled in any courses yet.</p>
+                <a href="/student/catalog" class="go-to-cart">Browse Available Courses</a>
+            </section>
         <% } %>
     </div>
 </body>

@@ -7,16 +7,18 @@
     <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
+    <header>
+        <h1>Welcome, <%= user.name %>!</h1>
+        <nav>
+            <ul>
+                <li><a href="/student/cart">View Cart</a></li>
+                <li><a href="/logout">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    
     <div class="container">
-        <header>
-            <h1>Welcome, <%= user.name %>!</h1>
-            <nav>
-                <ul>
-                    <li><a href="/student/cart">View Cart</a></li>
-                    <li><a href="/logout">Logout</a></li>
-                </ul>
-            </nav>
-        </header>
+        
 
         <!-- Enrolled Courses Section -->
         <section class="enrolled-courses">
@@ -49,5 +51,43 @@
             </div>
         </section>
     </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Select all forms in the course catalog section
+            const forms = document.querySelectorAll('.catalog form');
+    
+            forms.forEach(form => {
+                form.addEventListener('submit', async (event) => {
+                    event.preventDefault(); // Prevent the form from submitting normally
+    
+                    const actionUrl = form.action; // Get the action URL of the form
+                    const courseCard = form.closest('.course-card'); // Get the parent course card
+    
+                    try {
+                        // Send the form data using Fetch API
+                        const response = await fetch(actionUrl, {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            }
+                        });
+    
+                        if (response.ok) {
+                            alert('Course added to cart successfully!');
+    
+                            // Remove the course card from the catalog
+                            courseCard.remove();
+                        } else {
+                            alert('Failed to add course to cart.');
+                        }
+                    } catch (error) {
+                        console.error('Error:', error);
+                        alert('An error occurred while adding the course.');
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
